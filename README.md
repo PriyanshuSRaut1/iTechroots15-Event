@@ -81,8 +81,8 @@ npm install
 ```bash
 npm run dev
 ```
+## 👨‍💻 Authors
 
-# 👨‍💻 Author
-**1. Priyanshu Raut** 
-**2. Yash Shelke**
+- [Priyanshu Raut](https://github.com/PriyanshuSRaut1)  
+- [Yash Shelke](https://github.com/yashshelkegit/itechroots-main)
 
