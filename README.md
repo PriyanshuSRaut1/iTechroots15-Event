@@ -81,3 +81,8 @@ npm install
 ```bash
 npm run dev
 ```
+
+# 👨‍💻 Author
+**1. Priyanshu Raut** 
+**2. Yash Shelke**
+
