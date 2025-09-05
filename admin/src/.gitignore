@@ -1,0 +1,10 @@
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+
+firebase.js
+cloudinary.js
+brevo.js

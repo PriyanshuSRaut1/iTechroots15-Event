@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Approved - iTechroots 15.0</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .header {
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      color: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+    .logo-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: white;
+      margin: -60px auto 15px;
+      padding: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 3px solid white;
+    }
+    .logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .header h1 {
+      margin: 10px 0 5px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .event-name {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .content {
+      padding: 25px;
+      color: #333;
+    }
+    .emoji {
+      font-size: 24px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .details-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .detail-row {
+      display: flex;
+      margin-bottom: 8px;
+    }
+    .detail-label {
+      font-weight: 600;
+      color: #555;
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .detail-value {
+      flex: 1;
+    }
+    .highlight {
+      background: #e8f5e9;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+      text-align: center;
+      font-weight: 600;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #777;
+      background: #f5f7fa;
+    }
+    .action-button {
+      display: inline-block;
+      background: #2e7d32;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      margin: 15px 0;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .action-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <img src="https://res.cloudinary.com/da9aw7fkp/image/upload/v1755284276/itechroots_xwb6ko.jpg" alt="iTechroots Logo" class="logo">
+      </div>
+      <h1>🎉 Registration Approved!</h1>
+      <div class="event-name">iTechroots 15.0</div>
+    </div>
+    
+    <div class="content">
+      <p>Hey ${registration.teamName || registration.members[0].name},</p>
+      <p>Great news! Your registration for <strong>${registration.eventTitle}</strong> has been approved!</p>
+      
+      <div class="details-card">
+        <div class="detail-row">
+          <span class="emoji">🆔</span>
+          <div class="detail-value">${registration.registrationId}</div>
+        </div>
+        <div class="detail-row">
+          <span class="emoji">📅</span>
+          <div class="detail-value">${new Date(registration.registrationDate).toLocaleDateString()}</div>
+        </div>
+        <div class="detail-row">
+          <span class="emoji">💰</span>
+          <div class="detail-value">₹${registration.totalAmount || registration.amount || '0'} paid</div>
+        </div>
+      </div>
+      
+      ${registration.teamName ? `
+      <div class="highlight">
+        <span class="emoji">👑</span> Team Leader: ${registration.members[0].name}<br>
+        <span class="emoji">📧</span> ${registration.members[0].email}
+      </div>
+      ` : ''}
+      
+      <center>
+        <a href="https://itechroots.in" class="action-button">View Event Details</a>
+      </center>
+      
+      <p style="text-align: center; font-size: 14px; color: #666;">
+        Can't wait to see you there! 🚀
+      </p>
+    </div>
+    
+    <div class="footer">
+      <p>This is an automated message. Need help? <a href="mailto:support@itechroots.in" style="color: #2e7d32;">Contact us</a></p>
+    </div>
+  </div>
+</body>
+</html>

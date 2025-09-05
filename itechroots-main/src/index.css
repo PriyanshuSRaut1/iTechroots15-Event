@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'skull';
+  src: url('./fonts/spider.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hand';
+  src: url('./fonts/hand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    /* Neo Cyberpunk Theme - Updated Color Scheme */
+    --background: 270 50% 4%;
+    --foreground: 330 100% 95%;
+
+    --card: 270 40% 8%;
+    --card-foreground: 330 100% 95%;
+
+    --popover: 270 40% 8%;
+    --popover-foreground: 330 100% 95%;
+
+    /* Electric Blue Primary */
+    --primary: 210 100% 60%;
+    --primary-foreground: 270 50% 4%;
+
+    /* Hot Pink Secondary */
+    --secondary: 330 100% 65%;
+    --secondary-foreground: 270 50% 4%;
+
+    --muted: 270 30% 12%;
+    --muted-foreground: 270 15% 65%;
+
+    /* Neon Green Accent */
+    --accent: 150 100% 55%;
+    --accent-foreground: 270 50% 4%;
+
+    /* Red Destructive */
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 330 100% 95%;
+
+    --border: 270 30% 18%;
+    --input: 270 30% 12%;
+    --ring: 210 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Neo Cyberpunk Specific Colors */
+    --cursed-green: 150 100% 55%;
+    --cursed-purple: 285 100% 70%;
+    --cursed-cyan: 180 100% 60%;
+    --cursed-pink: 330 100% 65%;
+    --cursed-blue: 210 100% 60%;
+    --cursed-orange: 25 100% 60%;
+    --cursed-dark: 270 50% 4%;
+    --cursed-darker: 270 70% 2%;
+    --cursed-gray: 270 30% 12%;
+
+    /* Gradients */
+    --gradient-cursed: linear-gradient(135deg, hsl(var(--cursed-blue)), hsl(var(--cursed-cyan)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--cursed-dark)), hsl(var(--cursed-darker)));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--cursed-purple)), hsl(var(--cursed-pink)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--cursed-orange)), hsl(var(--cursed-pink)));
+
+    /* Glitch Effects */
+    --glitch-red: 0 100% 60%;
+    --glitch-blue: 240 100% 60%;
+
+    /* Sidebar Colors */
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 8% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 8% 15%;
+    --sidebar-ring: 120 100% 50%;
+  }
+
+  .dark {
+    /* Keep the same dark theme as root since we're already dark */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 240 10% 3.9%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 15%;
+    --input: 240 8% 15%;
+    --ring: 120 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, hsl(var(--cursed-dark)), hsl(var(--cursed-darker)));
+    font-family: 'Inter', 'system-ui', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Glitch Animation Keyframes */
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 hsl(var(--glitch-red)), -0.05em -0.025em 0 hsl(var(--glitch-blue)),
+        0.025em 0.05em 0 hsl(var(--cursed-green));
+    }
+
+    15% {
+      text-shadow: 0.05em 0 0 hsl(var(--glitch-red)), -0.05em -0.025em 0 hsl(var(--glitch-blue)),
+        0.025em 0.05em 0 hsl(var(--cursed-green));
+    }
+
+    16% {
+      text-shadow: -0.05em -0.025em 0 hsl(var(--glitch-red)), 0.025em 0.025em 0 hsl(var(--glitch-blue)),
+        -0.05em -0.05em 0 hsl(var(--cursed-green));
+    }
+
+    49% {
+      text-shadow: -0.05em -0.025em 0 hsl(var(--glitch-red)), 0.025em 0.025em 0 hsl(var(--glitch-blue)),
+        -0.05em -0.05em 0 hsl(var(--cursed-green));
+    }
+
+    50% {
+      text-shadow: 0.025em 0.05em 0 hsl(var(--glitch-red)), 0.05em 0 0 hsl(var(--glitch-blue)),
+        0 -0.05em 0 hsl(var(--cursed-green));
+    }
+
+    99% {
+      text-shadow: 0.025em 0.05em 0 hsl(var(--glitch-red)), 0.05em 0 0 hsl(var(--glitch-blue)),
+        0 -0.05em 0 hsl(var(--cursed-green));
+    }
+
+    100% {
+      text-shadow: -0.025em 0 0 hsl(var(--glitch-red)), -0.025em -0.025em 0 hsl(var(--glitch-blue)),
+        -0.025em -0.05em 0 hsl(var(--cursed-green));
+    }
+  }
+
+  @keyframes neon-glow {
+
+    0%,
+    100% {
+      text-shadow: 0 0 5px hsl(var(--cursed-green)), 0 0 10px hsl(var(--cursed-green)),
+        0 0 15px hsl(var(--cursed-green)), 0 0 20px hsl(var(--cursed-green));
+    }
+
+    50% {
+      text-shadow: 0 0 2px hsl(var(--cursed-green)), 0 0 5px hsl(var(--cursed-green)),
+        0 0 8px hsl(var(--cursed-green)), 0 0 12px hsl(var(--cursed-green));
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes scan-line {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  /* Utility Classes */
+  .glitch-text {
+    animation: glitch 0.3s infinite linear alternate-reverse;
+  }
+
+  .neon-glow {
+    animation: neon-glow 2s ease-in-out infinite alternate;
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .cursed-gradient {
+    background: var(--gradient-cursed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cursed-border {
+    border: 1px solid hsl(var(--cursed-green));
+    box-shadow: 0 0 10px hsl(var(--cursed-green) / 0.3);
+  }
+
+  .cursed-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+body{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+/* In your main CSS file (e.g., index.css) */
+
+.font-creepy {
+  font-family: 'Creepster', cursive;
+}
+
+.font-monospace-unsettling {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Keyframe for subtle flicker effect */
+@keyframes flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  5% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 0.97;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.9;
+  }
+
+  30% {
+    opacity: 1;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 4s infinite step-end;
+}
+
+/* Keyframe for subtle stone texture movement */
+@keyframes texture-pan {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.bg-stone-texture {
+  background-image: url('/images/dark-stone-texture.jpg');
+  /* Replace with your image */
+  background-size: cover;
+  /* or contain, as needed */
+  animation: texture-pan 60s linear infinite alternate;
+}
+
