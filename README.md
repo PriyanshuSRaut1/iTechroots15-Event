@@ -76,7 +76,7 @@ cd admin
 npm install
 
 ```
-
+/
 ## 👉 Important: Before running, create a file at admin/src/firebase.js (see Firebase Setup)
 ```bash
 npm run dev
